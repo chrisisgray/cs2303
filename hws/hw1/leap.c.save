@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Determines if a year after 1792 is a leap year.
+ * Created by Cristobal Rincon Rogers, cristobal
+ * 
+ * Usage:
+ *   ./leap some_number
+ * Example
+ *   ./leap 2303
+ *
+*/
+
+int main(int argc, const char* argv[]) {
+  int n; // Integer read from the command line goes here
+
+  if(argc < 2) { // Check that there was an entry
+    printf("Must enter a number on the command line!\n");
+    return 1;
+  }
+
+  n = atoi(argv[1]); // Get string from command line; Convert to int
+  if(n < 1792) {
+    printf("The program cannot test the year %d. It only handles the year 1752 and after", n);
+  }
+printf("The number you ent u u 
+  return 0; // Indicates success!
+}
