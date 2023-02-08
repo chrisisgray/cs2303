@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "mystring.h"
+#include "employee.h"
+#include "generate.h"
 
 /** ctest.c
  * Program to demonstrate character arrays and dynamically-allocated memory.
@@ -100,5 +102,54 @@ int main()
   goofy = mystrndup(bad, 5);
   printf("goofy is %s\n", goofy);
 
+  char *someName = "Cristobal\0";
+  char *sisName = "Arisa\0";
+  Employee *newEmployee;
+  Employee *newEmployee2;
+  Employee *newEmployee3;
+  Employee *newEmployee4;
+
+  newEmployee = make_employee(someName, 2002, 2019);
+  newEmployee2 = make_employee(sisName, 2004, 2021);
+  newEmployee3 = generateEmployee(9);
+  newEmployee4 = generateEmployee(7);
+
+  Employee *work[4] = {newEmployee, newEmployee2, newEmployee3, newEmployee4};
+
+  printEmployee(newEmployee);
+  printEmployee(newEmployee2);
+  printEmployee(newEmployee3);
+  printEmployee(newEmployee4);
+
+  int d = sizeof(work) / sizeof(Employee*);
+  
+
+  printf("this is the number of people working here: %d\n", d);
+
+  printf("\n\n\n");
+  Employee **bestWorkforce = generateWorkforce(3);
+  printWorkforce(bestWorkforce, 3);
+
+  printf("\n\n Here comes the replica\n\n");
+  Employee **replica = copyWorkforce(bestWorkforce, 3);
+  printWorkforce(replica, 3);
+
+  printf("\n\n Here comes the deep copy\n\n");
+  Employee **existing = deepCopyWorkforce(bestWorkforce, 3);
+
+  printf("\n\n Time to free the employees\n\n");
+  freeTheEmployees(bestWorkforce, 3);
+
+  printf("\n\n workforce still exists even though I freed previous pointers!\n\n");
+  printWorkforce(existing, 3);
+
+  free(newEmployee);
+  free(newEmployee2);
+  free(newEmployee3);
+  free(newEmployee4);
+
   return 0;
 }
+
+
+
