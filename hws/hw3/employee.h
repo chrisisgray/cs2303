@@ -1,7 +1,14 @@
+/**
+ * @brief defines constants and function prototypes for employee.c
+ * 
+ */
+
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
-#define MAX_EMPLOYEE_NAME_LENGTH 10 // employees can only have names of 20 characters long
+#define MAX_EMPLOYEE_NAME_LENGTH 10 // employees can only have names of 10 characters long
+
+// struct of _employee with alias Employee
 
 typedef struct _employee {
     char* name;

@@ -1,3 +1,14 @@
+/**
+ * @file generate.h
+ * @author Cristobal Rincon Rogers
+ * @brief generate.h contains defined constants and function prototypes for generate.c
+ * @version 0.1
+ * @date 2023-02-08
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef GENERATE_H
 #define GENERATE_H
 
