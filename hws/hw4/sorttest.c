@@ -18,6 +18,9 @@
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 
+
+#define DEFAULT 1
+
 int main (int argc, const char* argv[]) {
 
   int *nums; // space to store numbers entered from the command line.
@@ -46,7 +49,7 @@ int main (int argc, const char* argv[]) {
   }
 
   // Now print, sort, and print the array, and time how long the sorting took.
-  timesort(nums, num_nums, 1); //uses the defualt sort_descending() funding
+  timesort(nums, num_nums, DEFAULT); //uses the defualt sort_descending() funding
 
   return 0; // Indicate success!
 }

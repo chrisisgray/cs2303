@@ -3,13 +3,13 @@
 #include "sort.h"
 #include "generate.h"
 
-/* Program which reads numbers from the command line,
+/* Program which generates random numbers based on number entered in the command line,
  * outputs them, sorts them in descending order, and outputs the sorted list.
- *
+ * Program can use array indexing or pointers for sorting
  * Usage:
- *         ./sorttest some_number another_number ...
+ *         ./sorttest2 some_number another_number
  * Example:
- *         ./sorttest 2014 
+ *         ./sorttest2 2014 1
  *
  */
 
@@ -25,16 +25,16 @@ int main (int argc, const char* argv[]) {
 
   int amount_num; // Integer read from the command line goes here.
   int i; // array index 
-  int next_num;  //next number to get
+  int next_num;  // next number to get
 
-  // Check that there is at least one numbers
+  // Check that there is at least two numbers
   amount_num = argc - 1;
   if (amount_num > 2 || amount_num < 2) { 
     printf("Error with input arguments! Exiting.\n");
     return 1; // Indicate failure
   }
   
-  int num_nums = atoi(argv[1]); // How many numbers to generate.
+  int num_nums = atoi(argv[1]); // Number of random integeres to generate.
   int sorting_function = atoi(argv[2]); // 0 is alt_sort_descending, 1 (default) is sort_descending
 
   // Allocate an array big enough to hold the numbers

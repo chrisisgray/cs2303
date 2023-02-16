@@ -7,6 +7,7 @@
  * sorts it, prints it again, and reports how long the sorting took.
  * @param a Array of integers.
  * @param count Number of integers in the array.
+ * @param defaultFunc Boolean value dictating if array indexing or pointer operations are used for sorting
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 

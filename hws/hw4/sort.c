@@ -47,6 +47,12 @@ void sort_descending(int nums[], int count) {
   }
 }
 
+/** Sorts an array of integers into descending order using pointers instead of array indexing.
+ * Uses the bubble sort algorithm
+ *
+ * @param nums Array to print
+ * @param count Number of elements to print
+ */
 void alt_sort_descending(int *nums, int count) {
   int round;     // How many times left to go through the outer loop.
   int i;         // Loop counter for the inner loop
@@ -68,9 +74,9 @@ void alt_sort_descending(int *nums, int count) {
 
       if ((*(nums + i)) < (*(nums + offset))) {
 	        inorder = 0;      // At least one pair had to be swapped
-	        temp = *(nums + i);
-	        *(nums + i) = *(nums + offset);
-	        *(nums + offset) = temp;
+	        temp = *(nums + i); // gets the current element in the array
+	        *(nums + i) = *(nums + offset); // sets the current element in the array to the next
+	        *(nums + offset) = temp;       // sets the value of the next item to the previous value
       }
     
   }
@@ -98,6 +104,7 @@ struct timeval timediff(struct timeval time1, struct timeval time2) {
     // if the time1 in microseconds exceeds that of time 2, then
     // subtract an additional second from tv_sec and then subtract the difference between microseconds
     // and set that equal to usec. 
+    
     diff.tv_sec = time2.tv_sec - time1.tv_sec - 1;
     diff.tv_usec = MAX_USEC + (time2.tv_usec - time1.tv_usec);  
   }

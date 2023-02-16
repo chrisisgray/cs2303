@@ -1,6 +1,7 @@
 #ifndef SORT_H
 #define SORT_H
 
+// max number of microseconds
 #define MAX_USEC 1000000 // 1,000,000
 
 // Function prototypes:
