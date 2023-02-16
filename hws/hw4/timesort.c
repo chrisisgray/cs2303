@@ -10,7 +10,7 @@
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 
-void timesort (int a[], int count) {
+void timesort (int a[], int count, int defaultFunc) {
 
   struct timeval start_time; // time stamps for start and end of sorting
   struct timeval end_time;
@@ -20,7 +20,13 @@ void timesort (int a[], int count) {
   print_int_array(a, count);
 
   gettimeofday(&start_time, NULL); // Get timestamp
-  sort_descending(a, count);
+
+  if(defaultFunc) {
+      sort_descending(a, count);
+  } else {
+      alt_sort_descending(a, count);
+  }
+  
   gettimeofday(&end_time, NULL); // Get timestamp
 
   printf("Sorted array (descending order):\n");
@@ -33,6 +39,12 @@ void timesort (int a[], int count) {
   sort_time = timediff(start_time, end_time);
   printf("Time spent sorting: ");
   print_timeval(sort_time); 
+
+// testing that timediff() now returns the correct value
+  struct timeval time1 = {1003, 610};
+  struct timeval time2 = {1005, 510};
+
+  timediff(time1, time2);
 
   return; // nothing to return
 }
