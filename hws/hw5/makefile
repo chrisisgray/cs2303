@@ -17,7 +17,7 @@ stack.o: stack.c stack.h
 
 docs:
 	doxygen
-	cp -rp html/* ~/public_html/lab5
+	cp -rp html/* ~/public_html/hw5/
 
 clean:
 	rm -f *.o stacktest stacktest_dbg
