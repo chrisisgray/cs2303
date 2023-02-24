@@ -1,4 +1,5 @@
 /** Header file for stack data structure implementation
+ * Each cell in the stack can hold a pointer to anything
  *
  * @author Blake Nelson
  *
@@ -6,13 +7,16 @@
 #ifndef STACK_H
 #define STACK_H
 
-#define SZ_STACK (120)      // Number of elements to hold in stack
 
 typedef struct stack {
-  void *elements[SZ_STACK]; /**< These are the elements stored in the stack */
-  int num_elements;         /**< Num elements in the stack - 0 when empty */
-  void **top;               /**< Ptr to empty slot at current top of stack */
+//top of stack increases as elements are pushed
+
+  void **top;               /**< Ptr to next free cell */
   void **base;              /**< Ptr to bottom (base) of the stack */
+
+  int num_elements;         /**< Num elements in the stack - 0 when empty */
+  int max_elements;         /**< Maximum number of elements allowed in the stack*/
+
 } Stack;
 
 /** Function prototypes for stack operations 
@@ -24,7 +28,7 @@ void * push (Stack *stack, void *element);
 int isempty (Stack *stack);
 int numelements (Stack *stack);
 int maxelements (Stack *stack);
-Stack * create (void);
+Stack * create (int size);
 void destroy (Stack *stack);
 
 #endif

@@ -6,6 +6,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "stack.h"
 
 /** Function to create a stack with defined size. The returned Stack structure
@@ -14,7 +15,7 @@
  *
  * @return pointer to Stack structure or NULL on error
  */
-Stack * create ( void ) {
+Stack * create ( int max_cells ) {
   Stack * stack = NULL;
 
   // Allocate memory for the structure identifying stack and its state
@@ -24,9 +25,17 @@ Stack * create ( void ) {
     return stack;
   }
 
+  
   // Valid stack was allocated, initialize attributes
   // Note: because we called calloc, fields initialized to 0
-  stack->top = stack->base = (void *) stack;
+  stack->top = stack->base = (void **) calloc(max_cells, sizeof(void *));
+
+  if(stack->base == NULL) {
+    return stack;
+  }
+
+  stack->num_elements = 0;   // zero items at the beginning
+  stack->max_elements = max_cells;
 
   return stack;
 }
@@ -47,13 +56,14 @@ Stack * create ( void ) {
  * @return none.
  */
 void destroy (Stack *stack) {
-  free (stack);
+  free(stack->base); // frees all elements within the stack (the entire memory block)
+  free(stack);
   return;
 }
 
 /** Function to return whether the stack is empty. If empty returns non-zero.
  *
- * @param stack is a pointet to the stack
+ * @param stack is a pointer to the stack
  * @return non-zero (true) if empty or zero (false) if not empty
  */
 int isempty(Stack *stack) {
@@ -77,7 +87,7 @@ int numelements(Stack *stack) {
  */
 int maxelements (Stack *stack) {
   // Note: we assume stack is not larger than we  can represent by signed int
-  return (int) (sizeof(stack->elements));
+  return stack->max_elements;
 }
 
 /** Function to support peeking at the current top of stack. This function
@@ -144,8 +154,9 @@ void * pop (Stack *stack) {
  */
 void * push (Stack *stack, void *element) {
   // If stack is full, we can't push another element
-  size_t maxelements = sizeof(stack->elements) / sizeof(void *);
-  if (maxelements == (stack->top - stack->base)) {
+
+  if (stack->num_elements == (stack->max_elements)) {
+      printf("Stack is full\n");
     return (void *) NULL;
   }
 
