@@ -30,6 +30,17 @@ char* mystrdup(const char* src) {
   return newstr;
 }
 
+char * mychardup(const char* src) {
+  char *newStr = (char *)malloc(2);
+
+  if(newStr == 0) {
+  return (char *)0;
+  }
+
+  mystrncpy(newStr, src, 1);
+  return newStr;
+}
+
 /**
  * @brief The mystrndup() function returns a pointer to a new string which
  * is a duplicate up to n chars of the string src. Memory for the new string is obtained malloc()
@@ -133,7 +144,7 @@ char* mystrncpy(char* des, const char* src, size_t n) {
    i++;
   }
 
-  for (; i < n; i++) {
+  for (; i < (n+1); i++) {
    *(des++) = '\0';
   }
   

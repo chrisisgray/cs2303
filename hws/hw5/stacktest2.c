@@ -18,32 +18,34 @@ int main (int argc, char *argv[]) {
   // Create a stack to hold our test data
   Stack *the_stack;
 
-  int size = atoi(argv[1]); // converts command line input to numeric value
-
-  // Create a stack to hold our test data
-  the_stack = create(size);  // creates stack with a size of inputed value
-
   char *buffer = NULL;
   size_t sz_buffer = 0;
   int numChars = 0;
 
-  char prompt[] = "Type a string or <Ctrl-d> to end: ";
-
   while(1) {
-    fprintf(stdout, "%s", prompt);
-    fflush(stdout);
     if((numChars = getline(&buffer, 
       &sz_buffer, stdin)) == EOF) {
         break;
       }
 
-      char *ptr = mystrdup(buffer);
+      int i = 0;
+      while (*(buffer + i) != '\n') {
+        char *ptr = mychardup((buffer + i));
+        push(the_stack, (void *)ptr);
+        i++;
+      }
 
-      push(the_stack, (void *) ptr);
-      //fprintf(stdout, "top of stack now %s \n", (char *) (peek(the_stack))); // casting void * and dereferencing it
-      //echo line back to user
-      fprintf(stdout, "You typed: %s\n", buffer);
-      //fflush(stdout);
+      for (; i < 0; i--) {
+        char *temp = (char*) pop(the_stack);
+        printf("%c", *temp);
+      }
+
+      printf("\n");
+
+      // fprintf(stdout, "top of stack now %s \n", (char *) (peek(the_stack))); // casting void * and dereferencing it
+      // echo line back to user
+      // fprintf(stdout, "You typed: %s\n", buffer);
+      // fflush(stdout);
 
       // release memory for next loop iteration
       free(buffer);
@@ -61,7 +63,8 @@ printf("num_elements: %d \n", the_stack->num_elements);
 int k = the_stack->num_elements;
 
 for (int i = 0; i < k; i++) {
-  printf("%s", (char *)(pop(the_stack))); // casting void * and dereferencing it
+  printf("This is the value of i: %d \n", i);
+  printf("top of stack now %s \n", (char *)(pop(the_stack))); // casting void * and dereferencing it
 }
 
   destroy(the_stack);

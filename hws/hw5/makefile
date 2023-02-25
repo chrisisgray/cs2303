@@ -1,13 +1,19 @@
-all: stacktest stacktest_dbg
+all: stacktest stacktest_dbg stacktest2
 
 stacktest: stacktest.o stack.o mystring.o
 	gcc -g stacktest.o stack.o mystring.o -o stacktest
+
+stacktest2: stacktest2.o stack.o mystring.o
+	gcc -g stacktest2.o stack.o mystring.o -o stacktest
 
 stacktest_dbg: stacktest_dbg.o stack.o mystring.o
 	gcc -g stacktest_dbg.o stack.o mystring.o -o stacktest_dbg
 
 stacktest.o: stacktest.c stack.h
 	gcc -g -c stacktest.c
+
+stacktest2.o: stacktest2.c stack.h
+	gcc -g -c stacktest2.c
 
 stacktest_dbg.o: stacktest.c stack.h
 	gcc -g -c -DDEBUG_TEST stacktest.c -o stacktest_dbg.o
