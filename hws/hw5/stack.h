@@ -1,7 +1,7 @@
 /** Header file for stack data structure implementation
  * Each cell in the stack can hold a pointer to anything
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  *
  */
 #ifndef STACK_H

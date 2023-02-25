@@ -99,6 +99,23 @@ int mystrlen(const char* src) {
 }
 
 /**
+ * @brief Determines the length of a string terminating with a newline character
+ * 
+ * @param src string to calculate the length of
+ * @return int legth of string not including terminating character (newline)
+ */
+int mystrlennewline(const char* src) {
+  int i = 0;
+
+  // checks for terminator and increments pointer 
+  while (*(src++) != '\n') {
+   i++; // increase the number of chars seen
+  }
+
+  return i; // returns the number of chars seen
+}
+
+/**
  * @author Cristobal Rincon Rogers
  * @brief The mystrcpy() function copies the string pointed to by src, 
  * including the null byte ('\0') to the buffer pointed to by des.
@@ -176,6 +193,14 @@ char* mystrcat(char* des, const char* src) {
 
 }
 
+/**
+ * @brief Concatenates the first n characters of src string into des.
+ * 
+ * @param des destinationn string
+ * @param src source string
+ * @param n number of characters to concatenate
+ * @return char* pointer to destination string.
+ */
 char* mystrncat(char* des, const char* src, size_t n) {
   
   size_t des_len = mystrlen(des);

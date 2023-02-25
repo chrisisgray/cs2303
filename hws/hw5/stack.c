@@ -1,7 +1,7 @@
 /** Functions to support Stack implementation. Each stack element is a 
  * pointer to void. This allows any type of object to be stored on the stack
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  */
 
 #include <stddef.h>
@@ -35,7 +35,7 @@ Stack * create ( int max_cells ) {
   }
 
   stack->num_elements = 0;   // zero items at the beginning
-  stack->max_elements = max_cells;
+  stack->max_elements = max_cells; //tracking the max number of elements
 
   return stack;
 }

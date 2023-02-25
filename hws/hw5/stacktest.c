@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
-#include <readline/readline.h>
-#include <readline/history.h>
 #include <unistd.h>
 #include "mystring.h"
 
@@ -26,12 +24,16 @@ int main (int argc, char *argv[]) {
   char *buffer = NULL;
   size_t sz_buffer = 0;
   int numChars = 0;
-
-  char prompt[] = "Type a string or <Ctrl-d> to end: ";
+ 
 
   while(1) {
-    fprintf(stdout, "%s", prompt);
-    fflush(stdout);
+
+     #ifdef DEBUG_TEST
+        char prompt[] = "Type a string or <Ctrl-d> to end: ";
+        fprintf(stdout, "%s", prompt);
+        fflush(stdout);
+    #endif
+   
     if((numChars = getline(&buffer, 
       &sz_buffer, stdin)) == EOF) {
         break;
@@ -40,10 +42,13 @@ int main (int argc, char *argv[]) {
       char *ptr = mystrdup(buffer);
 
       push(the_stack, (void *) ptr);
-      //fprintf(stdout, "top of stack now %s \n", (char *) (peek(the_stack))); // casting void * and dereferencing it
+
+      #ifdef DEBUG_TEST
+      fprintf(stdout, "top of stack now %s \n", (char *) (peek(the_stack))); // casting void * and dereferencing it
       //echo line back to user
-      fprintf(stdout, "You typed: %s\n", buffer);
-      //fflush(stdout);
+      fprintf(stdout, "%s\n", buffer);
+      fflush(stdout);
+      #endif
 
       // release memory for next loop iteration
       free(buffer);
@@ -56,15 +61,15 @@ int main (int argc, char *argv[]) {
 if(buffer != NULL) {
   free(buffer);
 }
-printf("num_elements: %d \n", the_stack->num_elements);
 
-int k = the_stack->num_elements;
+int k = the_stack->num_elements; // get the total number of elements in the stack
 
 for (int i = 0; i < k; i++) {
-  printf("%s", (char *)(pop(the_stack))); // casting void * and dereferencing it
+  // no need for newline character because strings already contain them
+  printf("%s", (char *)(pop(the_stack))); // casting void * to char * and dereferencing it
 }
 
-  destroy(the_stack);
+  destroy(the_stack); // releases all memory allocated by the program
 
 return 0;
 

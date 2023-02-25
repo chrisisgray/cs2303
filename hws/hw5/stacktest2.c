@@ -6,10 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
-#include <readline/readline.h>
-#include <readline/history.h>
 #include <unistd.h>
 #include "mystring.h"
+
 
 /** main function to demonstrate use of stack
  *
@@ -28,24 +27,23 @@ int main (int argc, char *argv[]) {
         break;
       }
 
+      int num = mystrlennewline(buffer);
+
+      the_stack = create(num); // creates a stack with size of string
       int i = 0;
       while (*(buffer + i) != '\n') {
-        char *ptr = mychardup((buffer + i));
+        char *ptr = (char *) malloc(sizeof(char *));
+        *ptr = *(buffer + i);
         push(the_stack, (void *)ptr);
         i++;
       }
 
-      for (; i < 0; i--) {
+      for (; i > 0; i--) {
         char *temp = (char*) pop(the_stack);
         printf("%c", *temp);
       }
 
       printf("\n");
-
-      // fprintf(stdout, "top of stack now %s \n", (char *) (peek(the_stack))); // casting void * and dereferencing it
-      // echo line back to user
-      // fprintf(stdout, "You typed: %s\n", buffer);
-      // fflush(stdout);
 
       // release memory for next loop iteration
       free(buffer);
@@ -58,16 +56,7 @@ int main (int argc, char *argv[]) {
 if(buffer != NULL) {
   free(buffer);
 }
-printf("num_elements: %d \n", the_stack->num_elements);
-
-int k = the_stack->num_elements;
-
-for (int i = 0; i < k; i++) {
-  printf("This is the value of i: %d \n", i);
-  printf("top of stack now %s \n", (char *)(pop(the_stack))); // casting void * and dereferencing it
-}
-
-  destroy(the_stack);
+ destroy(the_stack); // releases all memory allocated by the program
 
 return 0;
 

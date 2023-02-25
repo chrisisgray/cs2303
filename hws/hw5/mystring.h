@@ -14,5 +14,6 @@ char* mystrncat(char* des, const char* src, size_t n);
 char* mystrncpy(char* des, const char* src, size_t n);
 char* mystrndup(const char* src, size_t n);
 char *mychardup(const char *src);
+int mystrlennewline(const char* src);
 
 #endif
