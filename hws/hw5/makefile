@@ -4,7 +4,7 @@ stacktest: stacktest.o stack.o mystring.o
 	gcc -g stacktest.o stack.o mystring.o -o stacktest
 
 stacktest2: stacktest2.o stack.o mystring.o
-	gcc -g stacktest2.o stack.o mystring.o -o stacktest
+	gcc -g stacktest2.o stack.o mystring.o -o stacktest2
 
 stacktest_dbg: stacktest_dbg.o stack.o mystring.o
 	gcc -g stacktest_dbg.o stack.o mystring.o -o stacktest_dbg
@@ -29,4 +29,4 @@ docs:
 	cp -rp html/* ~/public_html/hw5/
 
 clean:
-	rm -f *.o stacktest stacktest_dbg
+	rm -f *.o stacktest stacktest_dbg stacktest2
