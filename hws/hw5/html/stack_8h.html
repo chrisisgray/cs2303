@@ -40,7 +40,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -54,11 +53,6 @@ $(function() {
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html">stack</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa02d14399c646a9fe263a5ec9f18b5bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#aa02d14399c646a9fe263a5ec9f18b5bb">SZ_STACK</a>&#160;&#160;&#160;(120)</td></tr>
-<tr class="separator:aa02d14399c646a9fe263a5ec9f18b5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -79,28 +73,11 @@ Functions</h2></td></tr>
 <tr class="separator:a0ee3699e5957f7bb1b2b8aec32251052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b297ca6da77b51269d626f527e97fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#af8b297ca6da77b51269d626f527e97fc">maxelements</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *<a class="el" href="structstack.html">stack</a>)</td></tr>
 <tr class="separator:af8b297ca6da77b51269d626f527e97fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92a5250771bbef1334f4a4844901236a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a92a5250771bbef1334f4a4844901236a">create</a> (void)</td></tr>
-<tr class="separator:a92a5250771bbef1334f4a4844901236a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbef18d420a8dc655fd2062e790c054f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#abbef18d420a8dc655fd2062e790c054f">create</a> (int size)</td></tr>
+<tr class="separator:abbef18d420a8dc655fd2062e790c054f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256b1c0dd8a00faf283db0e684f1c888"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a256b1c0dd8a00faf283db0e684f1c888">destroy</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *<a class="el" href="structstack.html">stack</a>)</td></tr>
 <tr class="separator:a256b1c0dd8a00faf283db0e684f1c888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa02d14399c646a9fe263a5ec9f18b5bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa02d14399c646a9fe263a5ec9f18b5bb">&#9670;&nbsp;</a></span>SZ_STACK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SZ_STACK&#160;&#160;&#160;(120)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Header file for stack data structure implementation</p>
-<dl class="section author"><dt>Author</dt><dd>Blake Nelson </dd></dl>
-
-</div>
-</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aa7883e8bf747b9dedec990b539df2cc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7883e8bf747b9dedec990b539df2cc0">&#9670;&nbsp;</a></span>Stack</h2>
@@ -113,12 +90,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Header file for stack data structure implementation Each cell in the stack can hold a pointer to anything</p>
+<dl class="section author"><dt>Author</dt><dd>Blake Nelson </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a92a5250771bbef1334f4a4844901236a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a5250771bbef1334f4a4844901236a">&#9670;&nbsp;</a></span>create()</h2>
+<a id="abbef18d420a8dc655fd2062e790c054f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbef18d420a8dc655fd2062e790c054f">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,8 +105,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a>* create </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_cells</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,7 +115,7 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Blake Nelson Function to create a stack with defined size. The returned Stack structure must be passed to each stack operation to identify the stack and its state.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to Stack structure or NULL on error </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>, <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
@@ -167,6 +146,10 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>none. </dd></dl>
 
+<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
 </div>
 </div>
 <a id="a75edc3b824b5a6d25cc80f18e11989fe"></a>
@@ -187,15 +170,13 @@ Functions</h2></td></tr>
 <p>Function to return whether the stack is empty. If empty returns non-zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>is a pointet to the stack </td></tr>
+    <tr><td class="paramname">stack</td><td>is a pointer to the stack </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>non-zero (true) if empty or zero (false) if not empty </dd></dl>
 
 <p class="reference">References <a class="el" href="stack_8c.html#a0ee3699e5957f7bb1b2b8aec32251052">numelements()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -223,9 +204,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the maximum number of elements the stack can hold </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a8407f1a5e482b9dd27b98c217dfaf320">stack::elements</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>.</p>
 
 </div>
 </div>
@@ -285,8 +264,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>the element on top of stack or null if the stack is empty </dd></dl>
 
 <p class="reference">References <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -357,7 +334,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the element pushed onto the stack or NULL on failure </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, <a class="el" href="structstack.html#a8407f1a5e482b9dd27b98c217dfaf320">stack::elements</a>, <a class="el" href="stack_8c.html#af8b297ca6da77b51269d626f527e97fc">maxelements()</a>, <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>, <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 

@@ -49,16 +49,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8407f1a5e482b9dd27b98c217dfaf320"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#a8407f1a5e482b9dd27b98c217dfaf320">elements</a> [<a class="el" href="stack_8h.html#aa02d14399c646a9fe263a5ec9f18b5bb">SZ_STACK</a>]</td></tr>
-<tr class="separator:a8407f1a5e482b9dd27b98c217dfaf320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acac1d5c1cc7821c2489ac45cc4d4c62c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">num_elements</a></td></tr>
-<tr class="separator:acac1d5c1cc7821c2489ac45cc4d4c62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f787249218fe5a08ebb9c333bf1838"><td class="memItemLeft" align="right" valign="top">void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">top</a></td></tr>
 <tr class="separator:a73f787249218fe5a08ebb9c333bf1838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806753ad4427789d88cc7053ac906b66"><td class="memItemLeft" align="right" valign="top">void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">base</a></td></tr>
 <tr class="separator:a806753ad4427789d88cc7053ac906b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac1d5c1cc7821c2489ac45cc4d4c62c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">num_elements</a></td></tr>
+<tr class="separator:acac1d5c1cc7821c2489ac45cc4d4c62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad97ed15767c553f9515db09fd6a53958"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">max_elements</a></td></tr>
+<tr class="separator:ad97ed15767c553f9515db09fd6a53958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for stack data structure implementation Each cell in the stack can hold a pointer to anything</p>
+<dl class="section author"><dt>Author</dt><dd>Blake Nelson </dd></dl>
+</div><h2 class="groupheader">Field Documentation</h2>
 <a id="a806753ad4427789d88cc7053ac906b66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a806753ad4427789d88cc7053ac906b66">&#9670;&nbsp;</a></span>base</h2>
 
@@ -72,24 +75,24 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Ptr to bottom (base) of the stack </p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#a92a5250771bbef1334f4a4844901236a">create()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8c.html#a0529a1bfb8f4eebcfd26584639dcdc55">create()</a>, and <a class="el" href="stack_8c.html#a256b1c0dd8a00faf283db0e684f1c888">destroy()</a>.</p>
 
 </div>
 </div>
-<a id="a8407f1a5e482b9dd27b98c217dfaf320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8407f1a5e482b9dd27b98c217dfaf320">&#9670;&nbsp;</a></span>elements</h2>
+<a id="ad97ed15767c553f9515db09fd6a53958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97ed15767c553f9515db09fd6a53958">&#9670;&nbsp;</a></span>max_elements</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* stack::elements[<a class="el" href="stack_8h.html#aa02d14399c646a9fe263a5ec9f18b5bb">SZ_STACK</a>]</td>
+          <td class="memname">int stack::max_elements</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>These are the elements stored in the stack </p>
+<p>Maximum number of elements allowed in the stack </p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#af8b297ca6da77b51269d626f527e97fc">maxelements()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8c.html#a0529a1bfb8f4eebcfd26584639dcdc55">create()</a>, <a class="el" href="stack_8c.html#af8b297ca6da77b51269d626f527e97fc">maxelements()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
 
 </div>
 </div>
@@ -106,7 +109,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Num elements in the stack - 0 when empty </p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#a0ee3699e5957f7bb1b2b8aec32251052">numelements()</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, <a class="el" href="stack_8c.html#ab9b175f5ea01bed047c29bcdb935a111">pop()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8c.html#a0529a1bfb8f4eebcfd26584639dcdc55">create()</a>, <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="stack_8c.html#a0ee3699e5957f7bb1b2b8aec32251052">numelements()</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, <a class="el" href="stack_8c.html#ab9b175f5ea01bed047c29bcdb935a111">pop()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
 
 </div>
 </div>
@@ -121,9 +124,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ptr to empty slot at current top of stack </p>
+<p>Ptr to next free cell </p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#a92a5250771bbef1334f4a4844901236a">create()</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, <a class="el" href="stack_8c.html#ab9b175f5ea01bed047c29bcdb935a111">pop()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8c.html#a0529a1bfb8f4eebcfd26584639dcdc55">create()</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, <a class="el" href="stack_8c.html#ab9b175f5ea01bed047c29bcdb935a111">pop()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
 
 </div>
 </div>
