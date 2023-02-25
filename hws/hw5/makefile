@@ -1,10 +1,10 @@
 all: stacktest stacktest_dbg
 
-stacktest: stacktest.o stack.o
-	gcc -g stacktest.o stack.o -o stacktest
+stacktest: stacktest.o stack.o mystring.o
+	gcc -g stacktest.o stack.o mystring.o -o stacktest
 
-stacktest_dbg: stacktest_dbg.o stack.o
-	gcc -g stacktest_dbg.o stack.o -o stacktest_dbg
+stacktest_dbg: stacktest_dbg.o stack.o mystring.o
+	gcc -g stacktest_dbg.o stack.o mystring.o -o stacktest_dbg
 
 stacktest.o: stacktest.c stack.h
 	gcc -g -c stacktest.c
@@ -14,6 +14,9 @@ stacktest_dbg.o: stacktest.c stack.h
 
 stack.o: stack.c stack.h
 	gcc -g -c stack.c
+
+string.o: mystring.c mystring.h
+	gcc -g -c mystring.c 
 
 docs:
 	doxygen
