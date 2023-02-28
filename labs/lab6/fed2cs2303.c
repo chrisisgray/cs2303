@@ -1,7 +1,7 @@
 /** Program to read in public zip code information and store as needed
- * for cs2301 assignment needs.
+ * for cs2303 assignment needs.
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  *
  */
 
@@ -161,9 +161,8 @@ int main (int argc, char *argv[]) {
   // zipprint will print the struct to output stream
   for(std::forward_list<Zipfed *>::iterator it = llist.begin(); it != llist.end(); it++) {
     Zipfed * pTmpZipfed = *it;
-    pTmpZipfed->print();
+    pTmpZipfed->print_filtered(fdOut);
   }
-
 
   /* Free memory before exiting
    * keep deleting the head until list is empty.

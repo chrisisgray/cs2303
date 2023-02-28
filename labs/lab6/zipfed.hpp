@@ -1,6 +1,6 @@
 /** Structures used for management of zip code records
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  */
 
 #ifndef ZIPFED_HPP
@@ -46,7 +46,8 @@ public:
   Zipfed();                         /**< default constructor for Zipfed */
   int parse_zip_federal(char *csv); /**< parse and inialize from line of input */
   void print(void);
+  void print(FILE *file);
+  void print_filtered(FILE *file);
 };
-
 
 #endif // ZIPSTRUCTS

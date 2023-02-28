@@ -1,7 +1,7 @@
 /** Program demonstrating parsing and linked lists. This program 
  * supports zip code lookup for any town in Massachusetts
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  *
  */
 

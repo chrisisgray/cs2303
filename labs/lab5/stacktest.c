@@ -23,8 +23,9 @@ int main (int argc, char *argv[]) {
   for (int i = 0; i < (sizeof(test_data) / sizeof(char *)); i++) {
 
     push(the_stack, test_data[i]);
-    
-    #ifdef DEBUG_TEST
+    printf("i is %d\n", i);
+
+#ifdef DEBUG_TEST
     printf("pushing element \"%s\"\n", test_data[i]);
     printf("top of stack now \"%s\"\n", (char *) peek(the_stack));
     #endif

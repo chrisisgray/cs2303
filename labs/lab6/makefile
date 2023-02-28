@@ -15,3 +15,7 @@ zipfilter.o: zipfed.hpp
 
 clean:
 	rm -r *.o fed2cs2303
+
+docs:
+	doxygen
+	cp -rpT html/ ~/public_html/lab6

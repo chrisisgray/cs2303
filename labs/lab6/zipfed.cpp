@@ -1,9 +1,10 @@
 /** Functions supporting manipulation and management of zip code 
  *
- * @author Blake Nelson
+ * @author Blake Nelson, Cristobal Rincon Rogers
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <algorithm>
 #include <string>
@@ -146,5 +147,122 @@ void Zipfed::print (void) {
   printf("%s,%s,", city.c_str(), state.c_str());
   printf("%f,%f\n", lat, lon);
   
+  return;
+}
+
+
+/**
+ * @brief Writes contents to a specified file.
+ * 
+ * @param file file pointer
+ */
+void Zipfed::print (FILE *file) {
+  std::string output;
+
+  output.append(zipcode.c_str());
+  output.append(",");
+
+  switch (zctype) {
+  case STANDARD:
+    output.append("STANDARD\0,");
+    break;
+  case PO_BOX:
+    output.append("PO_BOX\0,");
+    break;
+  case UNIQUE:
+    output.append("UNIQUE\0,");
+
+    break;
+  case MILITARY:
+    output.append("MILITARY\0,");
+
+    break;
+  case INVALID:
+    output.append("INVALID\0,");
+
+    break;
+  default:
+    output.append("\0,");
+    break;
+  }
+
+  std::string lat_string = std::to_string(lat).c_str();
+  std::string lon_string = std::to_string(lon).c_str();
+
+  output.append(city.c_str());
+   output.append(",");
+  output.append(state.c_str());
+   output.append(",");
+  output.append(lat_string);
+   output.append(",");
+  output.append(lon_string);
+  output.append("\n");
+
+  const int len = output.length();
+  char *char_array = new char[len + 1];
+
+  strcpy(char_array, output.c_str());
+
+  std::fprintf(file, "%s", char_array);
+  
+  return;
+}
+
+/**
+ * @brief Writes zip codes and other information for the state of Massachussets to a file.
+ * 
+ * @param file file pointer.
+ */
+void Zipfed::print_filtered (FILE *file) {
+
+  if(state.compare("MA") == 0) {
+    std::string output;
+
+  output.append(zipcode.c_str());
+  output.append(",");
+
+  switch (zctype) {
+  case STANDARD:
+    output.append("STANDARD\0,");
+    break;
+  case PO_BOX:
+    output.append("PO_BOX\0,");
+    break;
+  case UNIQUE:
+    output.append("UNIQUE\0,");
+
+    break;
+  case MILITARY:
+    output.append("MILITARY\0,");
+
+    break;
+  case INVALID:
+    output.append("INVALID\0,");
+
+    break;
+  default:
+    output.append("\0,");
+    break;
+  }
+
+  std::string lat_string = std::to_string(lat).c_str();
+  std::string lon_string = std::to_string(lon).c_str();
+
+  output.append(city.c_str());
+   output.append(",");
+  output.append(state.c_str());
+   output.append(",");
+  output.append(lat_string);
+   output.append(",");
+  output.append(lon_string);
+  output.append("\n");
+
+  const int len = output.length();
+  char *char_array = new char[len + 1];
+
+  strcpy(char_array, output.c_str());
+
+  std::fprintf(file, "%s", char_array);
+  }
   return;
 }
