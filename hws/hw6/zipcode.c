@@ -62,19 +62,21 @@ ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
 
 void filter(const char* city) {
   // print filtered list
-  // int len = mystrlennewline(city);
-  // char *upperCaseCity = (char *)calloc(len+1, sizeof(char *));
-  // for (int i = 0; i < len; i++) {
-  //   *(upperCaseCity + i) = toupper(city[i]); // places each character of the previous
-  // }
+  int len = mystrlennewline(city);
+  char *upperCaseCity = (char *)calloc(len+1, sizeof(char *));
+  for (int i = 0; i < len; i++) {
+    *(upperCaseCity + i) = toupper(city[i]); // places each character of the previous
+  }
 
-  // upperCaseCity[len + 1] = '\n'; // add newline character to end of character
+  upperCaseCity[len + 1] = '\n'; // add newline character to end of character
 
   for (std::forward_list<Zipfed *>::iterator it = linkedList.begin(); it != linkedList.end(); it++)
   {
     Zipfed *pTmpZipfed = *it;
-    if(pTmpZipfed->getCity().compare(city) == 0) {
-      printf("%s\n", pTmpZipfed->getCity().c_str());
+    const char *curr_str = pTmpZipfed->getCity().c_str();
+    if ((strcmp(curr_str, upperCaseCity)) == 0)
+    {
+      pTmpZipfed->print_zipcode();
     }
     }
 }
@@ -117,32 +119,20 @@ int main (int argc, char *argv[]) {
   size_t sz_buffer = 0;
   int numChars = 0;
 
-  while(1) {
+  
 
     char prompt[] = "Type a City to search or <Ctrl-d> to end: ";
         fprintf(stdout, "%s", prompt);
         fflush(stdout);
 
-     if((numChars = getline(&buffer, 
-      &sz_buffer, stdin)) == EOF) {
-        break;
-      }
+  while((numChars = getline(&buffer, 
+       &sz_buffer, stdin)) != EOF) { 
 
     while((chars_read = readln_cs2303 (&inbuf, &sz_inbuf, fdIn)) != EOF) {
       if(chars_read == 0) {
         continue;
       }
       
-      if (chars_read == EOF)
-      {
-        linkedList.sort(comparator_function);
-        filter(buffer);
-
-        free(buffer);
-        buffer = NULL;
-        sz_buffer = 0;
-        break;
-      }
 
     Zipfed *pZipfed = new Zipfed();
     if(pZipfed->parse_zip_cs2303(inbuf) != 0) {
@@ -150,14 +140,28 @@ int main (int argc, char *argv[]) {
       fclose (fdIn);
       return -4;
     }
-
+    printf("hello\n");
     linkedList.push_front(pZipfed);
-    
-    }
+        }
+
+      
+        linkedList.sort(comparator_function);
+        filter(buffer);
+
+        free(buffer);
+        buffer = NULL;
+        sz_buffer = 0;
+
+        fprintf(stdout, "%s", prompt);
+        fflush(stdout);
+      }
+
+       return 0;
   }
 
 
   
 
-  return 0;
-}
+ 
+
+
