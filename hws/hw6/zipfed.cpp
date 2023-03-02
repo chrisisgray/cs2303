@@ -150,6 +150,15 @@ void Zipfed::print (void) {
   return;
 }
 
+void Zipfed::print_zipcode (void) {
+  printf ("%s, %s", zipcode.c_str(), city.c_str());
+  
+  //printf("%s,%s,", city.c_str(), state.c_str());
+  printf("\n");
+
+  return;
+}
+
 
 /**
  * @brief Writes contents to a specified file.
@@ -223,27 +232,29 @@ void Zipfed::print_filtered (FILE *file) {
 
   switch (zctype) {
   case STANDARD:
-    output.append("STANDARD\0,");
+    output.append("STANDARD");
     break;
   case PO_BOX:
-    output.append("PO_BOX\0,");
+    output.append("PO_BOX");
     break;
   case UNIQUE:
-    output.append("UNIQUE\0,");
+    output.append("UNIQUE");
 
     break;
   case MILITARY:
-    output.append("MILITARY\0,");
+    output.append("MILITARY");
 
     break;
   case INVALID:
-    output.append("INVALID\0,");
+    output.append("INVALID");
 
     break;
   default:
-    output.append("\0,");
+    output.append("\0");
     break;
   }
+  
+  output.append(",");
 
   std::string lat_string = std::to_string(lat).c_str();
   std::string lon_string = std::to_string(lon).c_str();
@@ -278,5 +289,16 @@ int Zipfed::parse_zip_cs2303(char* csv) {
 
   token = strtok(csv, delim);
   zipcode = token; // for now, I will just consider the zip codes
+  token = strtok(NULL, delim); // this contains the address type. we do not store this
+  token = strtok(NULL, delim); // this contains the city name, we do store this
+  
+  city = token;
+  //printf("%s, %s\n", zipcode.c_str(), city.c_str());
+  return 0;
+}
 
+
+
+std::string Zipfed::getCity() {
+  return city;
 }

@@ -12,6 +12,8 @@
 #include <string>
 #include <forward_list>
 #include "zipfed.hpp"
+#include "mystring.h"
+#include <ctype.h>
 
 /** program to find the zip code for any town in Massachusetts
  *
@@ -21,6 +23,18 @@
  */
 
 #define SZ_FILENAME 129
+std::forward_list<Zipfed *> linkedList;  // singly linked list of pointers to strings
+
+// unsure if this is valid
+  bool comparator_function(Zipfed* pZip1, Zipfed* pZip2) {
+    return (pZip2->getCity().compare(pZip1->getCity()) > 0);
+
+    // const char *str1 = pZip1->getCity().c_str(); 
+    // const char *str2 = pZip2->getCity().c_str();
+    // printf("%s, %s, %d\n", str1, str2, strcmp(str1, str2));
+    // return strcmp(str1, str2) < 0; // strcmp returns a negative value if s1 is less than s2
+    //                           //  therefore, if this is true, then pZip1 is less than pZip2
+  }
 
 ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
   ssize_t bytes_read = -1;  // -1 will signify error reading line
@@ -46,6 +60,25 @@ ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
   return bytes_read;
 }
 
+void filter(const char* city) {
+  // print filtered list
+  // int len = mystrlennewline(city);
+  // char *upperCaseCity = (char *)calloc(len+1, sizeof(char *));
+  // for (int i = 0; i < len; i++) {
+  //   *(upperCaseCity + i) = toupper(city[i]); // places each character of the previous
+  // }
+
+  // upperCaseCity[len + 1] = '\n'; // add newline character to end of character
+
+  for (std::forward_list<Zipfed *>::iterator it = linkedList.begin(); it != linkedList.end(); it++)
+  {
+    Zipfed *pTmpZipfed = *it;
+    if(pTmpZipfed->getCity().compare(city) == 0) {
+      printf("%s\n", pTmpZipfed->getCity().c_str());
+    }
+    }
+}
+
 
 
 int main (int argc, char *argv[]) {
@@ -56,6 +89,8 @@ int main (int argc, char *argv[]) {
   }
 
 
+
+
   char infile[SZ_FILENAME]; // Path/name of input file
   FILE *fdIn;
 
@@ -63,7 +98,7 @@ int main (int argc, char *argv[]) {
   char *inbuf = NULL;       // input file has 1 record per line to buffer
   size_t sz_inbuf = 0;      // // current size of the input record
 
-  std::forward_list<Zipfed *> linkedList;  // singly linked list of pointers to strings
+  
 
   strncpy(infile, argv[1], SZ_FILENAME - 1);
 
@@ -77,11 +112,37 @@ int main (int argc, char *argv[]) {
     fprintf(stderr, "cannot open %s for input - exiting\n", infile);
     return -2;
   }
+ 
+  char *buffer = NULL;
+  size_t sz_buffer = 0;
+  int numChars = 0;
 
-  while((chars_read = readln_cs2303 (&inbuf, &sz_inbuf, fdIn)) != EOF) {
-    if(chars_read == 0) {
-      continue;
-    }
+  while(1) {
+
+    char prompt[] = "Type a City to search or <Ctrl-d> to end: ";
+        fprintf(stdout, "%s", prompt);
+        fflush(stdout);
+
+     if((numChars = getline(&buffer, 
+      &sz_buffer, stdin)) == EOF) {
+        break;
+      }
+
+    while((chars_read = readln_cs2303 (&inbuf, &sz_inbuf, fdIn)) != EOF) {
+      if(chars_read == 0) {
+        continue;
+      }
+      
+      if (chars_read == EOF)
+      {
+        linkedList.sort(comparator_function);
+        filter(buffer);
+
+        free(buffer);
+        buffer = NULL;
+        sz_buffer = 0;
+        break;
+      }
 
     Zipfed *pZipfed = new Zipfed();
     if(pZipfed->parse_zip_cs2303(inbuf) != 0) {
@@ -90,23 +151,13 @@ int main (int argc, char *argv[]) {
       return -4;
     }
 
-    // // parse the zipcodes into string
-    // const char *delim = ","; // comma is the delimeter
-    // char *token;            // This will be the token we read using strtok
-    // int recnum = 0;         // Each record in CSV is sequentially numbered
-
-    // // first column is the 5-digit zip code as string
-    // token = strtok(inbuf, delim);
-
-    // printf("%s\n", token);
     linkedList.push_front(pZipfed);
+    
+    }
   }
 
-// TODO: IMPLEMENT BUBBLE SORTING ALGORITHM FOR THIS. THEN PRINT THEM.
-   for(std::forward_list<Zipfed *>::iterator it = linkedList.begin(); it != linkedList.end(); it++) {
-    Zipfed * pTmpZipfed = *it;
-    // pTmpZipfed->print_filtered();
-  }
+
+  
 
   return 0;
 }

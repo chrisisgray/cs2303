@@ -13,11 +13,14 @@ zipfed.o: zipfed.cpp zipfed.hpp
 zipfilter.o: zipfed.hpp
 	g++ -g -c zipfilter.c
 
-zipcode: zipcode.o zipfed.o
-	g++ -g zipcode.o zipfed.o -o zipcode
+zipcode: zipcode.o zipfed.o mystring.o
+	g++ -g zipcode.o zipfed.o mystring.o -o zipcode
 
-zipcode.o: zipcode.c zipfed.hpp
+zipcode.o: zipcode.c zipfed.hpp mystring.h mystring.c
 	g++ -g -c zipcode.c
+
+mystring.o: mystring.c mystring.h
+	g++ -g -c mystring.c 
 
 clean:
 	rm *.o fed2cs2303 zipcode
