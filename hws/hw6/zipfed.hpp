@@ -50,7 +50,7 @@ public:
   void print_filtered(FILE *file);
   int parse_zip_cs2303(char *csv);
   std::string getCity();
-  void print_zipcode();
+  void print_zipcode()
 };
 
 #endif // ZIPSTRUCTS

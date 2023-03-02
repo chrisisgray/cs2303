@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lab6: Zipfed Class Reference</title>
+<title>HW6: Zipfed Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Lab6
+   <div id="projectname">HW6
    </div>
   </td>
  </tr>
@@ -57,11 +57,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a488f32ea167ab74ae1892e9ee575a6bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZipfed.html#a488f32ea167ab74ae1892e9ee575a6bb">print</a> (void)</td></tr>
 <tr class="separator:a488f32ea167ab74ae1892e9ee575a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78139f21dd4fec97f33307b26054f34a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZipfed.html#a78139f21dd4fec97f33307b26054f34a">print</a> (FILE *file)</td></tr>
-<tr class="memdesc:a78139f21dd4fec97f33307b26054f34a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes contents to a specified file.  <a href="classZipfed.html#a78139f21dd4fec97f33307b26054f34a">More...</a><br /></td></tr>
+<tr class="memdesc:a78139f21dd4fec97f33307b26054f34a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints/Writes contents to a specified file.  <a href="classZipfed.html#a78139f21dd4fec97f33307b26054f34a">More...</a><br /></td></tr>
 <tr class="separator:a78139f21dd4fec97f33307b26054f34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2dc235c28209cd7462995da2ef601f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">print_filtered</a> (FILE *file)</td></tr>
 <tr class="memdesc:ab2dc235c28209cd7462995da2ef601f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes zip codes and other information for the state of Massachussets to a file.  <a href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">More...</a><br /></td></tr>
 <tr class="separator:ab2dc235c28209cd7462995da2ef601f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c1bf107db029d431a2ba802119a1449"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZipfed.html#a0c1bf107db029d431a2ba802119a1449">parse_zip_cs2303</a> (char *csv)</td></tr>
+<tr class="memdesc:a0c1bf107db029d431a2ba802119a1449"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse a record of a csv to extract the zipcode and city a record.  <a href="classZipfed.html#a0c1bf107db029d431a2ba802119a1449">More...</a><br /></td></tr>
+<tr class="separator:a0c1bf107db029d431a2ba802119a1449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe3ade05c6a6841bdf96f994a09d735"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZipfed.html#afbe3ade05c6a6841bdf96f994a09d735">getCity</a> ()</td></tr>
+<tr class="memdesc:afbe3ade05c6a6841bdf96f994a09d735"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter function for city attribute.  <a href="classZipfed.html#afbe3ade05c6a6841bdf96f994a09d735">More...</a><br /></td></tr>
+<tr class="separator:afbe3ade05c6a6841bdf96f994a09d735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -102,6 +108,61 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="afbe3ade05c6a6841bdf96f994a09d735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe3ade05c6a6841bdf96f994a09d735">&#9670;&nbsp;</a></span>getCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Zipfed::getCity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter function for city attribute. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string city </dd></dl>
+
+<p class="reference">References <a class="el" href="classZipfed.html#ae189d6172c4a02a5a909bf07ce371c4c">city</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#a88645e3cf09d093e9c5fce0da391be9e">comparator_function()</a>, and <a class="el" href="zipcode_8c.html#aebb44dee84c3777f8a38e49479023753">filter()</a>.</p>
+
+</div>
+</div>
+<a id="a0c1bf107db029d431a2ba802119a1449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c1bf107db029d431a2ba802119a1449">&#9670;&nbsp;</a></span>parse_zip_cs2303()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Zipfed::parse_zip_cs2303 </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>csv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse a record of a csv to extract the zipcode and city a record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">csv</td><td>pointer to a string of comma seperated values </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 if success, -1 if csv is NULL or len of zero </dd></dl>
+
+<p class="reference">References <a class="el" href="classZipfed.html#ae189d6172c4a02a5a909bf07ce371c4c">city</a>, and <a class="el" href="classZipfed.html#a6f63ddba5ad36117d3a9635b31fe7450">zipcode</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
 <a id="ac05ad5f464724addf7ebccfd678c957d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac05ad5f464724addf7ebccfd678c957d">&#9670;&nbsp;</a></span>parse_zip_federal()</h2>
 
@@ -152,7 +213,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Writes contents to a specified file. </p>
+<p>Prints/Writes contents to a specified file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>file pointer </td></tr>
@@ -243,7 +304,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Name of city for zip code </p>
 
-<p class="reference">Referenced by <a class="el" href="classZipfed.html#ac05ad5f464724addf7ebccfd678c957d">parse_zip_federal()</a>, <a class="el" href="classZipfed.html#a488f32ea167ab74ae1892e9ee575a6bb">print()</a>, <a class="el" href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">print_filtered()</a>, and <a class="el" href="classZipfed.html#ad06a6dcd3eef4f9a89390e45da2af8c1">Zipfed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classZipfed.html#afbe3ade05c6a6841bdf96f994a09d735">getCity()</a>, <a class="el" href="classZipfed.html#a0c1bf107db029d431a2ba802119a1449">parse_zip_cs2303()</a>, <a class="el" href="classZipfed.html#ac05ad5f464724addf7ebccfd678c957d">parse_zip_federal()</a>, <a class="el" href="classZipfed.html#a488f32ea167ab74ae1892e9ee575a6bb">print()</a>, <a class="el" href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">print_filtered()</a>, and <a class="el" href="classZipfed.html#ad06a6dcd3eef4f9a89390e45da2af8c1">Zipfed()</a>.</p>
 
 </div>
 </div>
@@ -368,7 +429,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>five digits zip code stored as string </p>
 
-<p class="reference">Referenced by <a class="el" href="classZipfed.html#ac05ad5f464724addf7ebccfd678c957d">parse_zip_federal()</a>, <a class="el" href="classZipfed.html#a488f32ea167ab74ae1892e9ee575a6bb">print()</a>, <a class="el" href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">print_filtered()</a>, and <a class="el" href="classZipfed.html#ad06a6dcd3eef4f9a89390e45da2af8c1">Zipfed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classZipfed.html#a0c1bf107db029d431a2ba802119a1449">parse_zip_cs2303()</a>, <a class="el" href="classZipfed.html#ac05ad5f464724addf7ebccfd678c957d">parse_zip_federal()</a>, <a class="el" href="classZipfed.html#a488f32ea167ab74ae1892e9ee575a6bb">print()</a>, <a class="el" href="classZipfed.html#ab2dc235c28209cd7462995da2ef601f0">print_filtered()</a>, and <a class="el" href="classZipfed.html#ad06a6dcd3eef4f9a89390e45da2af8c1">Zipfed()</a>.</p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lab6: zipcode.c File Reference</title>
+<title>HW6: zipcode.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Lab6
+   <div id="projectname">HW6
    </div>
   </td>
  </tr>
@@ -39,19 +39,146 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">zipcode.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;zipfilter.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;forward_list&gt;</code><br />
+<code>#include &quot;<a class="el" href="zipfed_8hpp_source.html">zipfed.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mystring_8h_source.html">mystring.h</a>&quot;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:adbb7a127f81ac178d88bbc3eb33805ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#adbb7a127f81ac178d88bbc3eb33805ce">SZ_FILENAME</a>&#160;&#160;&#160;129</td></tr>
+<tr class="separator:adbb7a127f81ac178d88bbc3eb33805ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a88645e3cf09d093e9c5fce0da391be9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#a88645e3cf09d093e9c5fce0da391be9e">comparator_function</a> (<a class="el" href="classZipfed.html">Zipfed</a> *pZip1, <a class="el" href="classZipfed.html">Zipfed</a> *pZip2)</td></tr>
+<tr class="memdesc:a88645e3cf09d093e9c5fce0da391be9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparator function used for sorting function to order strings lexicographically.  <a href="zipcode_8c.html#a88645e3cf09d093e9c5fce0da391be9e">More...</a><br /></td></tr>
+<tr class="separator:a88645e3cf09d093e9c5fce0da391be9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44680346cb74a3c272a39b05d65e69e2"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#a44680346cb74a3c272a39b05d65e69e2">readln_cs2303</a> (char **lineptr, size_t *n, FILE *stream)</td></tr>
+<tr class="memdesc:a44680346cb74a3c272a39b05d65e69e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the next line in a csv file  <a href="zipcode_8c.html#a44680346cb74a3c272a39b05d65e69e2">More...</a><br /></td></tr>
+<tr class="separator:a44680346cb74a3c272a39b05d65e69e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb44dee84c3777f8a38e49479023753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#aebb44dee84c3777f8a38e49479023753">filter</a> (const char *city)</td></tr>
+<tr class="memdesc:aebb44dee84c3777f8a38e49479023753"><td class="mdescLeft">&#160;</td><td class="mdescRight">extracts the zipcodes of the desired city in Massachussets.  <a href="zipcode_8c.html#aebb44dee84c3777f8a38e49479023753">More...</a><br /></td></tr>
+<tr class="separator:aebb44dee84c3777f8a38e49479023753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a683d408fe5b87eae20a129533e498bdc"><td class="memItemLeft" align="right" valign="top">std::forward_list&lt; <a class="el" href="classZipfed.html">Zipfed</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zipcode_8c.html#a683d408fe5b87eae20a129533e498bdc">linkedList</a></td></tr>
+<tr class="separator:a683d408fe5b87eae20a129533e498bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="adbb7a127f81ac178d88bbc3eb33805ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb7a127f81ac178d88bbc3eb33805ce">&#9670;&nbsp;</a></span>SZ_FILENAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SZ_FILENAME&#160;&#160;&#160;129</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Program demonstrating parsing and linked lists. This program supports zip code lookup for any town in Massachusetts</p>
+<dl class="section author"><dt>Author</dt><dd>Blake Nelson, Cristobal Rincon Rogers program to find the zip code for any town in Massachusetts</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>is the number of field on command line - should be 2 </td></tr>
+    <tr><td class="paramname">argv</td><td>is array of strings entered on command line - prog name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 for success </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a88645e3cf09d093e9c5fce0da391be9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88645e3cf09d093e9c5fce0da391be9e">&#9670;&nbsp;</a></span>comparator_function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comparator_function </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classZipfed.html">Zipfed</a> *&#160;</td>
+          <td class="paramname"><em>pZip1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classZipfed.html">Zipfed</a> *&#160;</td>
+          <td class="paramname"><em>pZip2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparator function used for sorting function to order strings lexicographically. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pZip1</td><td>pointer to a <a class="el" href="classZipfed.html">Zipfed</a> struct </td></tr>
+    <tr><td class="paramname">pZip2</td><td>pointer to a <a class="el" href="classZipfed.html">Zipfed</a> struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true pZip1 is less than pZip2 </dd>
+<dd>
+false pZip1 is greater than or equal to pZip2 </dd></dl>
+
+<p class="reference">References <a class="el" href="classZipfed.html#afbe3ade05c6a6841bdf96f994a09d735">Zipfed::getCity()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="aebb44dee84c3777f8a38e49479023753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb44dee84c3777f8a38e49479023753">&#9670;&nbsp;</a></span>filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void filter </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>city</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>extracts the zipcodes of the desired city in Massachussets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">city</td><td>City name in Massachussets </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classZipfed.html#afbe3ade05c6a6841bdf96f994a09d735">Zipfed::getCity()</a>, <a class="el" href="zipcode_8c.html#a683d408fe5b87eae20a129533e498bdc">linkedList</a>, and <a class="el" href="mystring_8c.html#ad0a2cd1a35b04053e54f701dd7a63c2a">mystrlennewline()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
 <a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -77,16 +204,72 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Program demonstrating parsing and linked lists. This program supports zip code lookup for any town in Massachusetts</p>
-<dl class="section author"><dt>Author</dt><dd>Blake Nelson, Cristobal Rincon Rogers program to find the zip code for any town in Massachusetts</dd></dl>
+
+<p class="reference">References <a class="el" href="zipcode_8c.html#a88645e3cf09d093e9c5fce0da391be9e">comparator_function()</a>, <a class="el" href="zipcode_8c.html#aebb44dee84c3777f8a38e49479023753">filter()</a>, <a class="el" href="zipcode_8c.html#a683d408fe5b87eae20a129533e498bdc">linkedList</a>, <a class="el" href="classZipfed.html#a0c1bf107db029d431a2ba802119a1449">Zipfed::parse_zip_cs2303()</a>, <a class="el" href="zipcode_8c.html#a44680346cb74a3c272a39b05d65e69e2">readln_cs2303()</a>, and <a class="el" href="zipcode_8c.html#adbb7a127f81ac178d88bbc3eb33805ce">SZ_FILENAME</a>.</p>
+
+</div>
+</div>
+<a id="a44680346cb74a3c272a39b05d65e69e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44680346cb74a3c272a39b05d65e69e2">&#9670;&nbsp;</a></span>readln_cs2303()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ssize_t readln_cs2303 </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>lineptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reads the next line in a csv file </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>is the number of field on command line - should be 1 </td></tr>
-    <tr><td class="paramname">argv</td><td>is array of strings entered on command line - prog name </td></tr>
+    <tr><td class="paramname">lineptr</td><td>pointer to line in csv. </td></tr>
+    <tr><td class="paramname">n</td><td>size of lineptr buffer. default input 0, to allocate memory. </td></tr>
+    <tr><td class="paramname">stream</td><td>file that we are reading from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 for success </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ssize_t number of characters read from the lineptr. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a683d408fe5b87eae20a129533e498bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a683d408fe5b87eae20a129533e498bdc">&#9670;&nbsp;</a></span>linkedList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::forward_list&lt;<a class="el" href="classZipfed.html">Zipfed</a> *&gt; linkedList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="zipcode_8c.html#aebb44dee84c3777f8a38e49479023753">filter()</a>, and <a class="el" href="zipcode_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>

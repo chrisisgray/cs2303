@@ -151,21 +151,19 @@ void Zipfed::print (void) {
 }
 
 void Zipfed::print_zipcode (void) {
-  printf ("%s, %s", zipcode.c_str(), city.c_str());
-  
-  //printf("%s,%s,", city.c_str(), state.c_str());
-  printf("\n");
-
+  printf ("%s, %s\n", zipcode.c_str(), city.c_str());
   return;
 }
 
 
 /**
- * @brief Writes contents to a specified file.
+ * @brief Prints/Writes contents to a specified file.
  * 
  * @param file file pointer
  */
 void Zipfed::print (FILE *file) {
+
+  // output string to append all elements of the csv record
   std::string output;
 
   output.append(zipcode.c_str());
@@ -268,16 +266,18 @@ void Zipfed::print_filtered (FILE *file) {
   output.append(lon_string);
   output.append("\n");
 
-  const int len = output.length();
-  char *char_array = new char[len + 1];
-
-  strcpy(char_array, output.c_str());
-
-  std::fprintf(file, "%s", char_array);
+  // print to the file
+  std::fprintf(file, "%s", output.c_str());
   }
   return;
 }
 
+/**
+ * @brief parse a record of a csv to extract the zipcode and city a record. 
+ * 
+ * @param csv pointer to a string of comma seperated values
+ * @return int 0 if success, -1 if csv is NULL or len of zero
+ */
 int Zipfed::parse_zip_cs2303(char* csv) {
   const char *delim = ",";
   std::string token;
@@ -293,12 +293,15 @@ int Zipfed::parse_zip_cs2303(char* csv) {
   token = strtok(NULL, delim); // this contains the city name, we do store this
   
   city = token;
-  //printf("%s, %s\n", zipcode.c_str(), city.c_str());
   return 0;
 }
 
 
-
+/**
+ * @brief getter function for city attribute.
+ * 
+ * @return std::string city
+ */
 std::string Zipfed::getCity() {
   return city;
 }

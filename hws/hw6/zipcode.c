@@ -5,7 +5,6 @@
  *
  */
 
-// #include "zipfilter.h"  no idea what this is for yet
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -25,17 +24,26 @@
 #define SZ_FILENAME 129
 std::forward_list<Zipfed *> linkedList;  // singly linked list of pointers to strings
 
-// unsure if this is valid
+/**
+ * @brief Comparator function used for sorting function to order strings lexicographically.
+ * 
+ * @param pZip1 pointer to a Zipfed struct
+ * @param pZip2 pointer to a Zipfed struct
+ * @return true pZip1 is less than pZip2
+ * @return false pZip1 is greater than or equal to pZip2
+ */
   bool comparator_function(Zipfed* pZip1, Zipfed* pZip2) {
     return (pZip2->getCity().compare(pZip1->getCity()) > 0);
-
-    // const char *str1 = pZip1->getCity().c_str(); 
-    // const char *str2 = pZip2->getCity().c_str();
-    // printf("%s, %s, %d\n", str1, str2, strcmp(str1, str2));
-    // return strcmp(str1, str2) < 0; // strcmp returns a negative value if s1 is less than s2
-    //                           //  therefore, if this is true, then pZip1 is less than pZip2
   }
 
+/**
+ * @brief reads the next line in a csv file
+ * 
+ * @param lineptr pointer to line in csv.
+ * @param n size of lineptr buffer. default input 0, to allocate memory.
+ * @param stream file that we are reading from
+ * @return ssize_t number of characters read from the lineptr. 
+ */
 ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
   ssize_t bytes_read = -1;  // -1 will signify error reading line
   const int delim = '\n';   // each line terminated with \n
@@ -45,8 +53,7 @@ ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
     return (ssize_t) -1;
   }
 
-  // Each line of the FED ZIP CSV file is terminated by \n, so we
-  // read up to and including the \r for the entire line
+  // Each line of the FED ZIP CSV file is terminated by \n
   bytes_read = getdelim (lineptr, n, delim, stream);
 
   // Remove the \n at the end of the line by replacing with NULL terminator
@@ -60,10 +67,17 @@ ssize_t readln_cs2303 (char **lineptr, size_t *n, FILE *stream) {
   return bytes_read;
 }
 
+/**
+ * @brief extracts the zipcodes of the desired city in Massachussets.
+ * 
+ * @param city City name in Massachussets
+ */
 void filter(const char* city) {
   // print filtered list
   int len = mystrlennewline(city);
   char *upperCaseCity = (char *)calloc(len+1, sizeof(char *));
+
+  // EXTRA CREDIT:: sets any input to capital letters, so all input is valid.
   for (int i = 0; i < len; i++) {
     *(upperCaseCity + i) = toupper(city[i]); // places each character of the previous
   }
@@ -90,9 +104,6 @@ int main (int argc, char *argv[]) {
       return -1;
   }
 
-
-
-
   char infile[SZ_FILENAME]; // Path/name of input file
   FILE *fdIn;
 
@@ -104,10 +115,7 @@ int main (int argc, char *argv[]) {
 
   strncpy(infile, argv[1], SZ_FILENAME - 1);
 
-  /**
-   * Open input files - return  error on faulure
-   * 
-   */
+  // Open input files - return  error on faulure
 
   fdIn = fopen(infile, "r");
   if (fdIn == NULL) {
@@ -120,7 +128,6 @@ int main (int argc, char *argv[]) {
   int numChars = 0;
 
   
-
     char prompt[] = "Type a City to search or <Ctrl-d> to end: ";
         fprintf(stdout, "%s", prompt);
         fflush(stdout);
@@ -140,8 +147,8 @@ int main (int argc, char *argv[]) {
       fclose (fdIn);
       return -4;
     }
-    printf("hello\n");
-    linkedList.push_front(pZipfed);
+
+          linkedList.push_front(pZipfed);
         }
 
       

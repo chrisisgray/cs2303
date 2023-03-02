@@ -27,4 +27,4 @@ clean:
 
 docs:
 	doxygen
-	cp -rpT html/ ~/public_html/lab6
+	cp -rpT html/ ~/public_html/hw6
